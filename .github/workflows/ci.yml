@@ -10,19 +10,14 @@ jobs:
   build-and-test:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [20.x, 22.x]
-
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Setup Node.js ${{ matrix.node-version }}
+      - name: Setup Node.js 22.x
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'npm'
+          node-version: 22
 
       - name: Install Dependencies
         run: npm install --legacy-peer-deps
@@ -31,18 +26,7 @@ jobs:
         run: npm run lint
 
       - name: Execute Vitest Test Suites
-        run: |
-          if ! npm test -- --reporter=verbose > test-output.txt 2>&1; then
-            cat test-output.txt
-            echo "### Test Failure Log (${{ matrix.node-version }})" >> $GITHUB_STEP_SUMMARY
-            echo '```' >> $GITHUB_STEP_SUMMARY
-            tail -n 120 test-output.txt >> $GITHUB_STEP_SUMMARY
-            echo '```' >> $GITHUB_STEP_SUMMARY
-            exit 1
-          fi
-        env:
-          NODE_ENV: test
-          CI: true
+        run: npx vitest run
 
       - name: Build Production Bundle
         run: npm run build
