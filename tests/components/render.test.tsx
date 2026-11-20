@@ -4,7 +4,8 @@
  */
 
 import { describe, it, expect } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
+import { screen } from '@testing-library/dom';
 import { SiteHeader } from '../../src/components/layout/SiteHeader';
 import { NavBar } from '../../src/components/layout/NavBar';
 import { SiteFooter } from '../../src/components/layout/SiteFooter';
