@@ -58,7 +58,7 @@ export const ImpactPanel: React.FC = () => {
       {/* Title */}
       <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6">
         <h2 className="text-base font-bold text-slate-100 flex items-center space-x-2">
-          <ChartLineUp size={20} weight="bold" className="text-cyan-400" />
+          <ChartLineUp size={20} weight="bold" className="text-cyan-400" aria-hidden="true" />
           <span>Direct Impact & Emission Savings Calculator</span>
         </h2>
         <p className="text-xs text-slate-400 mt-1">

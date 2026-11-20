@@ -31,7 +31,7 @@ export const DashboardPanel: React.FC<DashboardPanelProps> = ({
       {/* Top Banner: City selector & Quick Simulator */}
       <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between gap-4">
         <div className="flex items-center space-x-3 w-full md:w-auto">
-          <MapPin size={24} weight="bold" className="text-cyan-400 shrink-0" />
+          <MapPin size={24} weight="bold" className="text-cyan-400 shrink-0" aria-hidden="true" />
           <div className="w-full">
             <label htmlFor="city-select" className="text-xs text-slate-400 block mb-1">
               Select Monitored Metro Area:
@@ -96,7 +96,7 @@ export const DashboardPanel: React.FC<DashboardPanelProps> = ({
         {/* Health Directives */}
         <div className="lg:col-span-2 bg-slate-900/60 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between space-y-4">
           <h3 className="text-sm font-bold text-slate-200 flex items-center space-x-2">
-            <ShieldCheck size={20} weight="bold" className="text-cyan-400" />
+            <ShieldCheck size={20} weight="bold" className="text-cyan-400" aria-hidden="true" />
             <span>Health & Harm Reduction Guidance</span>
           </h3>
 
@@ -113,7 +113,7 @@ export const DashboardPanel: React.FC<DashboardPanelProps> = ({
           </div>
 
           <div className="p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs flex items-start space-x-2.5">
-            <Warning size={20} weight="fill" className="shrink-0 text-amber-400 mt-0.5" />
+            <Warning size={20} weight="fill" className="shrink-0 text-amber-400 mt-0.5" aria-hidden="true" />
             <span>
               <strong>Winter Temperature Inversion Effect:</strong> Cold winter air traps vehicle exhaust and biomass smoke close to the ground between 6 AM and 10 AM. Reschedule intense outdoor tasks for the afternoon.
             </span>
@@ -124,7 +124,7 @@ export const DashboardPanel: React.FC<DashboardPanelProps> = ({
       {/* Pollutant Breakdown Grid */}
       <div>
         <h3 className="text-sm font-bold text-slate-200 mb-3 flex items-center space-x-2">
-          <Info size={18} weight="bold" className="text-cyan-400" />
+          <Info size={18} weight="bold" className="text-cyan-400" aria-hidden="true" />
           <span>Major Urban Pollutants Monitored</span>
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">

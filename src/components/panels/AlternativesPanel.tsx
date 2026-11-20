@@ -23,7 +23,7 @@ export const AlternativesPanel: React.FC = () => {
       <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 space-y-4">
         <div>
           <h2 className="text-base font-bold text-slate-100 flex items-center space-x-2">
-            <ArrowsClockwise size={20} weight="bold" className="text-cyan-400" />
+            <ArrowsClockwise size={20} weight="bold" className="text-cyan-400" aria-hidden="true" />
             <span>Sustainable Lifestyle & Clean Energy Alternatives</span>
           </h2>
           <p className="text-xs text-slate-400 mt-1">
@@ -76,7 +76,7 @@ export const AlternativesPanel: React.FC = () => {
             {/* Implementation Steps */}
             <div>
               <h4 className="text-xs font-bold text-slate-300 mb-2 flex items-center space-x-1.5">
-                <CheckSquareOffset size={16} weight="bold" className="text-emerald-400" />
+                <CheckSquareOffset size={16} weight="bold" className="text-emerald-400" aria-hidden="true" />
                 <span>Actionable Transition Roadmap</span>
               </h4>
               <ul className="space-y-1.5 text-xs text-slate-300">
@@ -91,7 +91,7 @@ export const AlternativesPanel: React.FC = () => {
 
             {/* Community Co-Benefit */}
             <div className="p-3.5 rounded-xl bg-slate-800/40 border border-slate-700/50 text-xs text-slate-300 flex items-start space-x-2">
-              <UsersThree size={18} weight="fill" className="text-cyan-400 shrink-0 mt-0.5" />
+              <UsersThree size={18} weight="fill" className="text-cyan-400 shrink-0 mt-0.5" aria-hidden="true" />
               <span>
                 <strong>Community Impact:</strong> {alt.communityBenefit}
               </span>

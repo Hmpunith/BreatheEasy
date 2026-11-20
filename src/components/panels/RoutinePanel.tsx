@@ -28,7 +28,7 @@ export const RoutinePanel: React.FC<RoutinePanelProps> = ({ routine, aqi }) => {
       <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between gap-4">
         <div>
           <h2 className="text-base font-bold text-slate-100 flex items-center space-x-2">
-            <Clock size={20} weight="bold" className="text-cyan-400" />
+            <Clock size={20} weight="bold" className="text-cyan-400" aria-hidden="true" />
             <span>Low-Emission Daily Routine (AQI {aqi})</span>
           </h2>
           <p className="text-xs text-slate-400 mt-1">
@@ -37,7 +37,7 @@ export const RoutinePanel: React.FC<RoutinePanelProps> = ({ routine, aqi }) => {
         </div>
 
         <div className="flex items-center space-x-3 px-4 py-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400">
-          <Leaf size={24} weight="bold" />
+          <Leaf size={24} weight="bold" aria-hidden="true" />
           <div>
             <span className="text-[10px] uppercase font-bold tracking-wider text-emerald-300 block">
               Estimated Routine Savings
@@ -51,7 +51,7 @@ export const RoutinePanel: React.FC<RoutinePanelProps> = ({ routine, aqi }) => {
       {routine.warnings.length > 0 && (
         <div className="bg-rose-950/40 border border-rose-800/60 rounded-2xl p-4 space-y-2">
           <h3 className="text-xs font-bold text-rose-300 flex items-center space-x-2">
-            <WarningCircle size={16} weight="fill" className="text-rose-400" />
+            <WarningCircle size={16} weight="fill" className="text-rose-400" aria-hidden="true" />
             <span>Vulnerability & High-Smog Alerts for Your Household</span>
           </h3>
           <ul className="space-y-1.5 text-xs text-rose-200">
@@ -79,7 +79,7 @@ export const RoutinePanel: React.FC<RoutinePanelProps> = ({ routine, aqi }) => {
               <div>
                 <h4 className="text-xs font-bold text-slate-200">{act.activity}</h4>
                 <p className="text-[11px] text-slate-400 mt-0.5 flex items-center space-x-1">
-                  <CheckCircle size={14} weight="bold" className="text-emerald-400 shrink-0" />
+                  <CheckCircle size={14} weight="bold" className="text-emerald-400 shrink-0" aria-hidden="true" />
                   <span>{act.greenTip}</span>
                 </p>
               </div>

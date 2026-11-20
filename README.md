@@ -77,10 +77,11 @@ BreatheEasy implements defense-in-depth security both at the Vercel Edge CDN gat
 
 ---
 
-## 🧪 Comprehensive Test Suite (13 Test Suites, 86 Passing Tests)
+## 🧪 Comprehensive Test Suite (14 Test Suites, 93 Passing Tests)
 
 | Category | File | Coverage & Assertions |
 |---|---|---|
+| **Client API Service** | `tests/unit/clientService.test.ts` | Endpoint communication, status error code mapping, and data typing |
 | **AQI Classifier** | `tests/unit/aqiClassifier.test.ts` | Threshold bands (0 to 500+), severity levels, WHO advisory limits |
 | **Pollutant Catalog** | `tests/unit/pollutants.test.ts` | PM2.5, PM10, NO₂, O₃, SO₂, CO standards and health indicators |
 | **Daily Routines** | `tests/unit/routines.test.ts` | Time-slotted routines, commute shifts, outdoor exertion guards |

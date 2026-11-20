@@ -94,7 +94,7 @@ export const NavBar: React.FC<NavBarProps> = ({ activeTab, onTabChange, onSelect
                     : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
                 }`}
               >
-                <Icon size={16} weight={isActive ? 'bold' : 'regular'} />
+                <Icon size={16} weight={isActive ? 'bold' : 'regular'} aria-hidden="true" />
                 <span>{tab.label}</span>
               </button>
             );

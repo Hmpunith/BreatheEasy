@@ -26,7 +26,7 @@ export const ProfilePanel: React.FC<ProfilePanelProps> = ({
       {/* Title */}
       <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6">
         <h2 className="text-base font-bold text-slate-100 flex items-center space-x-2">
-          <UsersThree size={20} weight="bold" className="text-cyan-400" />
+          <UsersThree size={20} weight="bold" className="text-cyan-400" aria-hidden="true" />
           <span>Household & Vulnerability Profile</span>
         </h2>
         <p className="text-xs text-slate-400 mt-1">
@@ -38,7 +38,7 @@ export const ProfilePanel: React.FC<ProfilePanelProps> = ({
         {/* Family Demographics */}
         <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 space-y-4">
           <h3 className="text-xs font-bold uppercase tracking-wider text-cyan-400 flex items-center space-x-2">
-            <UsersThree size={16} weight="bold" />
+            <UsersThree size={16} weight="bold" aria-hidden="true" />
             <span>Family Demographics & Health</span>
           </h3>
 
@@ -101,7 +101,7 @@ export const ProfilePanel: React.FC<ProfilePanelProps> = ({
         {/* Living Space Constraints */}
         <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 space-y-4">
           <h3 className="text-xs font-bold uppercase tracking-wider text-cyan-400 flex items-center space-x-2">
-            <HouseLine size={16} weight="bold" />
+            <HouseLine size={16} weight="bold" aria-hidden="true" />
             <span>Living Space & Budget</span>
           </h3>
 

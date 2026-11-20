@@ -41,7 +41,7 @@ export const CopilotPanel: React.FC<CopilotPanelProps> = ({
       {/* Context Grounding Bar */}
       <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 flex flex-wrap items-center justify-between text-xs text-slate-300 gap-2">
         <div className="flex items-center space-x-2">
-          <Sparkle size={18} weight="fill" className="text-cyan-400" />
+          <Sparkle size={18} weight="fill" className="text-cyan-400" aria-hidden="true" />
           <span className="font-semibold text-slate-200">AirSense Grounded Intelligence:</span>
           <span>{currentCity}</span>
           <span>•</span>
@@ -92,7 +92,7 @@ export const CopilotPanel: React.FC<CopilotPanelProps> = ({
                 <p className="whitespace-pre-line">{msg.text}</p>
                 {!isUser && msg.source && (
                   <div className="mt-2 pt-1.5 border-t border-slate-700/50 flex items-center space-x-1 text-[10px] text-cyan-400">
-                    <Lightning size={12} weight="fill" />
+                    <Lightning size={12} weight="fill" aria-hidden="true" />
                     <span className="capitalize">{msg.source} Engine Verified</span>
                   </div>
                 )}
@@ -127,7 +127,7 @@ export const CopilotPanel: React.FC<CopilotPanelProps> = ({
           className="px-5 py-3 rounded-xl bg-cyan-500 text-slate-950 font-semibold text-xs flex items-center space-x-2 hover:bg-cyan-400 disabled:opacity-50 transition-all shadow-md shadow-cyan-500/20"
         >
           <span>Send</span>
-          <PaperPlaneTilt size={16} weight="bold" />
+          <PaperPlaneTilt size={16} weight="bold" aria-hidden="true" />
         </button>
       </form>
     </div>

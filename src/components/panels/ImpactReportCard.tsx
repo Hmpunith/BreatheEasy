@@ -27,7 +27,7 @@ export const ImpactReportCard: React.FC<ImpactReportCardProps> = ({ report }) =>
     <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 space-y-6">
       {/* Executive Summary */}
       <div className="p-4 rounded-xl bg-cyan-950/40 border border-cyan-800/60 text-xs text-cyan-200 flex items-start space-x-3">
-        <Sparkle size={24} weight="fill" className="text-cyan-400 shrink-0 mt-0.5" />
+        <Sparkle size={24} weight="fill" className="text-cyan-400 shrink-0 mt-0.5" aria-hidden="true" />
         <p className="leading-relaxed font-medium">{report.executiveSummary}</p>
       </div>
 
@@ -51,7 +51,7 @@ export const ImpactReportCard: React.FC<ImpactReportCardProps> = ({ report }) =>
 
         <div className="p-4 rounded-xl bg-slate-800/50 border border-slate-700 text-center">
           <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-400 flex items-center justify-center space-x-1 mb-1">
-            <Tree size={14} weight="fill" />
+            <Tree size={14} weight="fill" aria-hidden="true" />
             <span>Tree Equivalent</span>
           </span>
           <span className="text-2xl font-black text-slate-100">{report.treeSeedlingsEquivalent}</span>

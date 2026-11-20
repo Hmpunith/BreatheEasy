@@ -30,17 +30,17 @@ export const SiteFooter: React.FC = () => {
         {/* Right: Security & A11y Badges */}
         <div className="flex flex-wrap items-center justify-center gap-2">
           <span className="flex items-center space-x-1.5 px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-[11px] text-slate-300">
-            <ShieldCheck size={14} weight="bold" className="text-emerald-400" />
+            <ShieldCheck size={14} weight="bold" className="text-emerald-400" aria-hidden="true" />
             <span>Strict CSP & Permissions-Policy</span>
           </span>
 
           <span className="flex items-center space-x-1.5 px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-[11px] text-slate-300">
-            <Eye size={14} weight="bold" className="text-amber-400" />
+            <Eye size={14} weight="bold" className="text-amber-400" aria-hidden="true" />
             <span>WCAG AA Compliant</span>
           </span>
 
           <span className="flex items-center space-x-1.5 px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-[11px] text-slate-300">
-            <Terminal size={14} weight="bold" className="text-cyan-400" />
+            <Terminal size={14} weight="bold" className="text-cyan-400" aria-hidden="true" />
             <span>TypeScript Strict Mode</span>
           </span>
         </div>

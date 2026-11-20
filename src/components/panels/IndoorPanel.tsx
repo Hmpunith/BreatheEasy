@@ -28,7 +28,7 @@ export const IndoorPanel: React.FC<IndoorPanelProps> = ({ hacks }) => {
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <div>
             <h2 className="text-base font-bold text-slate-100 flex items-center space-x-2">
-              <HouseLine size={20} weight="bold" className="text-cyan-400" />
+              <HouseLine size={20} weight="bold" className="text-cyan-400" aria-hidden="true" />
               <span>Indoor Air Quality Hacks & DIY Smog Defenses</span>
             </h2>
             <p className="text-xs text-slate-400 mt-1">
@@ -74,14 +74,14 @@ export const IndoorPanel: React.FC<IndoorPanelProps> = ({ hacks }) => {
               {/* Badges */}
               <div className="flex flex-wrap gap-2 mb-3 text-[10px] font-semibold">
                 <span className="px-2 py-0.5 rounded bg-slate-800 text-slate-300 capitalize flex items-center space-x-1">
-                  <Tag size={12} weight="bold" />
+                  <Tag size={12} weight="bold" aria-hidden="true" />
                   <span>{hack.category.replace('_', ' ')}</span>
                 </span>
                 <span className="px-2 py-0.5 rounded bg-slate-800 text-slate-300 capitalize">
                   Cost: {hack.costTier.replace('_', ' ')}
                 </span>
                 <span className="px-2 py-0.5 rounded bg-slate-800 text-slate-300 capitalize flex items-center space-x-1">
-                  <Wrench size={12} weight="bold" />
+                  <Wrench size={12} weight="bold" aria-hidden="true" />
                   <span>{hack.effortLevel} effort</span>
                 </span>
                 <span className="px-2 py-0.5 rounded bg-cyan-950/60 border border-cyan-800/40 text-cyan-400">
@@ -102,7 +102,7 @@ export const IndoorPanel: React.FC<IndoorPanelProps> = ({ hacks }) => {
             {/* Fit Reason Footer */}
             <div className="pt-2 border-t border-slate-800 flex items-center justify-between text-[10px] text-slate-400">
               <span className="flex items-center space-x-1 text-cyan-400">
-                <ShieldCheck size={14} weight="bold" />
+                <ShieldCheck size={14} weight="bold" aria-hidden="true" />
                 <span>{personalFitReason}</span>
               </span>
             </div>

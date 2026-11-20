@@ -22,7 +22,7 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({ currentCity, assessment 
         {/* Brand */}
         <div className="flex items-center space-x-3">
           <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-emerald-400 flex items-center justify-center text-slate-950 font-bold shadow-md shadow-cyan-500/20">
-            <Wind size={24} weight="bold" />
+            <Wind size={24} weight="bold" aria-hidden="true" />
           </div>
           <div>
             <div className="flex items-center space-x-2">
@@ -66,7 +66,7 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({ currentCity, assessment 
           aria-live="polite"
           className="bg-rose-950/90 border-t border-b border-rose-800 text-rose-200 text-xs py-2 px-4 flex items-center justify-center space-x-2"
         >
-          <WarningCircle size={18} weight="fill" className="text-rose-400 animate-bounce" />
+          <WarningCircle size={18} weight="fill" className="text-rose-400 animate-bounce" aria-hidden="true" />
           <span>
             <strong>Severe Winter Smog Alert:</strong> AQI is {assessment?.aqi}. Limit outdoor exposure, seal window drafts, and run indoor air filtration.
           </span>
