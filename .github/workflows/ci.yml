@@ -32,17 +32,17 @@ jobs:
 
       - name: Execute Vitest Test Suites
         run: |
-          npm test -- --reporter=verbose > test-output.txt 2>&1 || (cat test-output.txt && exit 1)
+          if ! npm test -- --reporter=verbose > test-output.txt 2>&1; then
+            cat test-output.txt
+            echo "### Test Failure Log (${{ matrix.node-version }})" >> $GITHUB_STEP_SUMMARY
+            echo '```' >> $GITHUB_STEP_SUMMARY
+            tail -n 120 test-output.txt >> $GITHUB_STEP_SUMMARY
+            echo '```' >> $GITHUB_STEP_SUMMARY
+            exit 1
+          fi
         env:
           NODE_ENV: test
           CI: true
-
-      - name: Upload Test Output Log
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: test-output-${{ matrix.node-version }}
-          path: test-output.txt
 
       - name: Build Production Bundle
         run: npm run build
