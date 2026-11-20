@@ -4,7 +4,7 @@
  */
 
 import { describe, it, expect } from 'vitest';
-import { render } from '@testing-library/react';
+import { render, fireEvent, act } from '@testing-library/react';
 import { screen } from '@testing-library/dom';
 import { App } from '../../src/App';
 import { SiteHeader } from '../../src/components/layout/SiteHeader';
@@ -12,8 +12,10 @@ import { NavBar } from '../../src/components/layout/NavBar';
 import { SiteFooter } from '../../src/components/layout/SiteFooter';
 
 describe('Accessibility & WCAG AA Compliance Landmark Tests', () => {
-  it('renders skip link as accessible jump navigation to #main-content', () => {
-    render(<App />);
+  it('renders skip link as accessible jump navigation to #main-content', async () => {
+    await act(async () => {
+      render(<App />);
+    });
     const skipLink = screen.getByText(/Skip to main content/i);
     expect(skipLink).toBeInTheDocument();
     expect(skipLink).toHaveAttribute('href', '#main-content');
@@ -50,6 +52,22 @@ describe('Accessibility & WCAG AA Compliance Landmark Tests', () => {
 
     const inactiveTab = screen.getByRole('tab', { name: /AirSense Copilot/i });
     expect(inactiveTab).toHaveAttribute('aria-selected', 'false');
+  });
+
+  it('supports keyboard navigation via ArrowRight and ArrowLeft in tablist', () => {
+    let selected = 'dashboard';
+    render(<NavBar activeTab="dashboard" onTabChange={(t) => { selected = t; }} />);
+    const activeTab = screen.getByRole('tab', { name: /AQI Dashboard/i });
+    expect(activeTab).toHaveAttribute('tabindex', '0');
+
+    const nextTab = screen.getByRole('tab', { name: /AirSense Copilot/i });
+    expect(nextTab).toHaveAttribute('tabindex', '-1');
+
+    fireEvent.keyDown(activeTab, { key: 'ArrowRight' });
+    expect(selected).toBe('copilot');
+
+    fireEvent.keyDown(activeTab, { key: 'ArrowLeft' });
+    expect(selected).toBe('profile');
   });
 
   it('renders role="contentinfo" landmark on SiteFooter', () => {

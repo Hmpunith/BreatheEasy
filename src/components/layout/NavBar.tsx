@@ -48,14 +48,34 @@ export const NavBar: React.FC<NavBarProps> = ({ activeTab, onTabChange, onSelect
     }
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent, currentIndex: number) => {
+    let nextIndex = -1;
+    if (e.key === 'ArrowRight') {
+      nextIndex = (currentIndex + 1) % TABS.length;
+    } else if (e.key === 'ArrowLeft') {
+      nextIndex = (currentIndex - 1 + TABS.length) % TABS.length;
+    } else if (e.key === 'Home') {
+      nextIndex = 0;
+    } else if (e.key === 'End') {
+      nextIndex = TABS.length - 1;
+    }
+    if (nextIndex >= 0) {
+      e.preventDefault();
+      const nextTab = TABS[nextIndex];
+      handleSelect(nextTab.id);
+      const nextElement = document.getElementById(`tab-${nextTab.id}`);
+      nextElement?.focus();
+    }
+  };
+
   return (
     <nav
       aria-label="Air Quality Navigation Modules"
       className="border-b border-slate-800/80 bg-slate-900/60 backdrop-blur-md sticky top-16 z-30 overflow-x-auto scrollbar-none"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div role="tablist" className="flex space-x-1 sm:space-x-2 py-2.5 min-w-max">
-          {TABS.map((tab) => {
+        <div role="tablist" aria-orientation="horizontal" className="flex space-x-1 sm:space-x-2 py-2.5 min-w-max">
+          {TABS.map((tab, index) => {
             const Icon = tab.icon;
             const isActive = activeTab === tab.id;
             return (
@@ -63,9 +83,11 @@ export const NavBar: React.FC<NavBarProps> = ({ activeTab, onTabChange, onSelect
                 key={tab.id}
                 role="tab"
                 id={`tab-${tab.id}`}
+                tabIndex={isActive ? 0 : -1}
                 aria-selected={isActive}
                 aria-controls={`panel-${tab.id}`}
                 onClick={() => handleSelect(tab.id)}
+                onKeyDown={(e) => handleKeyDown(e, index)}
                 className={`flex items-center space-x-2 px-3.5 py-2 rounded-xl text-xs font-semibold transition-all ${
                   isActive
                     ? 'bg-cyan-500/15 text-cyan-400 border border-cyan-500/30 shadow-sm shadow-cyan-500/10'

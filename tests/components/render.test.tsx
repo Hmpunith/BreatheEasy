@@ -15,6 +15,7 @@ import { RoutinePanel } from '../../src/components/panels/RoutinePanel';
 import { IndoorPanel } from '../../src/components/panels/IndoorPanel';
 import { AlternativesPanel } from '../../src/components/panels/AlternativesPanel';
 import { ImpactPanel } from '../../src/components/panels/ImpactPanel';
+import { ImpactReportCard } from '../../src/components/panels/ImpactReportCard';
 import { ProfilePanel } from '../../src/components/panels/ProfilePanel';
 import { POLLUTANT_CATALOG } from '../../server/domains/aqi/pollutantData';
 
@@ -168,6 +169,28 @@ describe('Component Rendering & UI View Tests', () => {
     render(<ImpactPanel />);
     expect(screen.getByText('Direct Impact & Emission Savings Calculator')).toBeInTheDocument();
     expect(screen.getByText('Recalculate Impact')).toBeInTheDocument();
+  });
+
+  it('renders ImpactReportCard with metric comparisons and executive summary', () => {
+    render(
+      <ImpactReportCard
+        report={{
+          baselineCo2eKg: 100,
+          alternativeCo2eKg: 20,
+          netCo2eSavedKg: 80,
+          baselinePm25Grams: 50,
+          alternativePm25Grams: 5,
+          netPm25ReducedGrams: 45,
+          treeSeedlingsEquivalent: 3.5,
+          executiveSummary: 'Great impact achieved.',
+        }}
+      />,
+    );
+    expect(screen.getByText('Great impact achieved.')).toBeInTheDocument();
+    expect(screen.getByText('80')).toBeInTheDocument();
+    expect(screen.getByText('45')).toBeInTheDocument();
+    expect(screen.getByText('3.5')).toBeInTheDocument();
+    expect(screen.getByText('Emission Comparison')).toBeInTheDocument();
   });
 
   it('renders ProfilePanel with household form controls', () => {
