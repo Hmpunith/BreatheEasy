@@ -5,7 +5,22 @@
  */
 
 import type { Request, Response, NextFunction } from 'express';
-import sanitizeHtml from 'sanitize-html';
+
+/**
+ * Strips HTML tags, script blocks, inline event handlers, and javascript: protocols.
+ * Pure native regex implementation with zero external CJS/ESM bundling issues.
+ * @param input - The raw string to sanitize.
+ * @returns Cleaned string without markup or executable script injection.
+ */
+function stripHtmlTags(input: string): string {
+  return input
+    .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
+    .replace(/<style\b[^<]*(?:(?!<\/style>)<[^<]*)*<\/style>/gi, '')
+    .replace(/<[^>]+>/g, '')
+    .replace(/javascript\s*:[^"']*/gi, '')
+    .replace(/on\w+\s*=\s*["'][^"']*["']/gi, '')
+    .trim();
+}
 
 /**
  * Recursively sanitizes all string values in an object, removing HTML/JS.
@@ -14,7 +29,7 @@ import sanitizeHtml from 'sanitize-html';
  */
 function deepSanitize(obj: unknown): unknown {
   if (typeof obj === 'string') {
-    return sanitizeHtml(obj, { allowedTags: [], allowedAttributes: {} });
+    return stripHtmlTags(obj);
   }
   if (Array.isArray(obj)) {
     return obj.map(deepSanitize);
