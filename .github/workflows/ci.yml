@@ -31,10 +31,18 @@ jobs:
         run: npm run lint
 
       - name: Execute Vitest Test Suites
-        run: npm test -- --reporter=verbose
+        run: |
+          npm test -- --reporter=verbose > test-output.txt 2>&1 || (cat test-output.txt && exit 1)
         env:
           NODE_ENV: test
           CI: true
+
+      - name: Upload Test Output Log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-output-${{ matrix.node-version }}
+          path: test-output.txt
 
       - name: Build Production Bundle
         run: npm run build
