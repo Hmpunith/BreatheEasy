@@ -3,6 +3,8 @@
  * @description Configures DOM testing matchers and mocks global browser APIs.
  */
 
+process.env.NODE_ENV = 'test';
+
 import '@testing-library/jest-dom/vitest';
 import { vi } from 'vitest';
 

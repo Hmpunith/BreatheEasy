@@ -31,7 +31,10 @@ jobs:
         run: npm run lint
 
       - name: Execute Vitest Test Suites
-        run: npm test
+        run: npm test -- --reporter=verbose
+        env:
+          NODE_ENV: test
+          CI: true
 
       - name: Build Production Bundle
         run: npm run build

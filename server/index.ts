@@ -36,8 +36,8 @@ app.use('/api', apiRouter);
 // Centralized error handler registered LAST
 app.use(faultBarrier);
 
-// Start server if executed directly
-if (process.env.NODE_ENV !== 'test' && !process.env.VERCEL) {
+// Start server if executed directly and not under test runners or serverless
+if (!process.env.VITEST && process.env.NODE_ENV !== 'test' && !process.env.VERCEL) {
   app.listen(PORT, () => {
     logger.info({ port: PORT }, 'BreatheEasy server listening');
   });
